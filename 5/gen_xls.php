@@ -6,7 +6,7 @@
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-  header("Content-Disposition: attachment; filename=ilyasov_11.xlsx");
+  header("Content-Disposition: attachment; filename=loginova_11.xlsx");
 
   require "../vendor/autoload.php";
 

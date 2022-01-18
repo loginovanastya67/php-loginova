@@ -60,5 +60,5 @@ if(!$_SESSION["rule"]) header("Location: .");
     $pdf -> Cell(30, 5, $type, 1, 1, "C");
 }
 
-$pdf -> Output("ilyasov_11.pdf", "D");
+$pdf -> Output("loginova_11", "D");
 ?>
