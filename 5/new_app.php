@@ -14,22 +14,23 @@ if(!$_SESSION["rule"]) header("Location: .");
 ?>
 <H2>Добавление новой записи:</H2>
 <form action="save_new_app.php" metod="get">
-<br>id Языка программирования: <select name="id_pl">
+
 <?php
-  $result=mysqli_query($conn, "SELECT * FROM pl");
-  echo "<option value='' selected disabled hidden>...</option>";
-  foreach($result as $row)
-    echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
-  echo "</select>";
+print "<br>id Языка программирования: <select name='id_pl'>";
+$result=mysqli_query($conn, "SELECT * FROM pl");
+echo "<option value='' selected hidden>...</option>";
+foreach($result as $row) echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+echo "</select>";
 ?>
-<br>id Разработчика: <select name="id_developer">
+
 <?php
-  $result=mysqli_query($conn, "SELECT * FROM developer");
-  echo "<option value='' selected disabled hidden>...</option>";
-  foreach($result as $row)
-    echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
-  echo "</select>";
+print "<br>id Разработчика: <select name='id_developer'>";
+$result=mysqli_query($conn, "SELECT * FROM developer");
+echo "<option value='' selected hidden>...</option>";
+foreach($result as $row) echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+echo "</select>";
 ?>
+
 <br>Дата создания: <input name="date" type="date">
 <br>Текущая версия: <input name="ver" size="20" type="text">
 <br>Название: <input name="name" size="20" type="text">

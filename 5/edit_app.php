@@ -23,18 +23,23 @@ if(!$_SESSION["rule"]) header("Location: .");
  }
 
 print "<form action='save_edit_app.php' metod='get'>";
-print "id Языка программирования: <select name='id_pl'>";
+
+print "<br>id Языка программирования: <select name='id_pl'>";
 $result=mysqli_query($conn, "SELECT * FROM pl");
-echo "<option value='".$id_pl."' selected hidden>".$id_pl."</option>";
-foreach($result as $row)
-  echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
+foreach($result as $row) {
+  if($row["id"] == $id_pl) echo "<option value='".$row["id"]."' selected>".$row["name"]."</option>";
+  else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+  }
 echo "</select>";
+
 print "<br>id Разработчика: <select name='id_developer'>";
 $result=mysqli_query($conn, "SELECT * FROM developer");
-echo "<option value='".$id_developer."' selected hidden>".$id_developer."</option>";
-foreach($result as $row)
-  echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
+foreach($result as $row) {
+  if($row["id"] == $id_developer) echo "<option value='".$row["id"]."' selected>".$row["name"]."</option>";
+  else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+  }
 echo "</select>";
+
 print "<br>Дата создания: <input name='date' type='date'
 value='".$date."'>";
 print "<br>Текущая версия: <input name='ver' size='20' type='text'
